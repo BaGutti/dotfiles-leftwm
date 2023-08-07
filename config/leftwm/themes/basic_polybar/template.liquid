@@ -1,0 +1,24 @@
+{% for tag in workspace.tags %}
+
+%{T4}
+{% if tag.mine %}%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}%{B#1e1e2e}%{F#74c7ec}  %{F-}%{B-}%{A}
+{% elsif tag.visible %}%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}%{B#1e1e2e}%{F#74c7ec}  %{F-}%{B-}%{A}
+{% elsif tag.busy %}%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}%{B#1e1e2e}%{F#ffffff}  %{F-}%{B-}%{A}
+{% else tag.visible %}%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}%{B#1e1e2e}%{F#ffffff}  %{F-}%{B-}%{A}
+{% endif %}
+%{T-}
+
+{% endfor %}
+
+%{u#1e1e2e}
+%{T1}%{O30}%{T-}
+%{u-}
+
+%{u#94e2d5}
+%{T2}
+%{A1:leftwm-command "NextLayout" :}%{A3:leftwm-command "PreviousLayout" :}
+%{B#1e1e2e}%{F#ffffff} {{ workspace.layout }} %{F-}%{B-}
+%{A}%{A}
+%{T-}
+%{u-}
+
